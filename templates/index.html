@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Python Container Demo</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="container">
+        <div class="card">
+            <h1>Python Container Demo</h1>
+
+            <p class="subtitle">
+                A simple Flask application running without a database.
+            </p>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Application is running
+            </div>
+
+            <div class="actions">
+                <a href="/api/health" class="button">
+                    Health Check
+                </a>
+
+                <a href="/api/message" class="button secondary">
+                    API Message
+                </a>
+            </div>
+
+            <div class="info">
+                <p><strong>Framework:</strong> Flask</p>
+                <p><strong>Database:</strong> None</p>
+                <p><strong>Port:</strong> 5000</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
+
