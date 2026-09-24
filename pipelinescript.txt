@@ -1,0 +1,25 @@
+pipeline {
+    agent any 
+    stages {
+        stage ('Clone_the_Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/UmeshChandra2001/Python_app_prod.git'
+            }
+        }
+        stage ('Build_image') {
+            steps {
+                sh 'docker build -t pyimage:v3 .'
+            }
+        }
+        stage ('image_ver') {
+            steps {
+                sh 'trivy image pyimage:v3'
+            }
+        }
+        stage ('Build_Container') {
+            steps {
+                sh 'docker run -d --name pycont -p 9986:5000 pyimage:v3'
+            }
+        }
+    }
+}
